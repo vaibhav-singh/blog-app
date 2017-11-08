@@ -30,3 +30,17 @@ def fetch_villages(request):
         'villages': result
     })
 
+
+
+def make_village(request):
+    name = request.GET['name']
+    latitude = request.GET['latitude']
+    longitude = request.GET['longitude']
+    Villages.objects.create(
+        name=name,
+        coo = Point(latitude, longitude)
+    )
+
+    return JsonResponse({
+        'success': 1
+    })
