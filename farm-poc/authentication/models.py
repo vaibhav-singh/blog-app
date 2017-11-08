@@ -9,7 +9,3 @@ from django.db import models
 def create_auth_token(sender, instance=None, created=False, **kwargs):
     if created:
         Token.objects.create(user=instance)
-
-
-class Country(models.Model):
-    country_name = models.CharField(max_length=50)
