@@ -1,1 +1,1 @@
-web: gunicorn farm-poc-django.wsgi --log-file -
+web: gunicorn farm-poc.wsgi --log-file -
