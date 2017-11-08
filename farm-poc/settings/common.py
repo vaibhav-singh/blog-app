@@ -60,7 +60,7 @@ DEBUG = True
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # ElasticBeanstalk healthcheck sends requests with host header = internal ip
-# So we detect if we are in elastic beanstalk, 
+# So we detect if we are in elastic beanstalk,
 # and add the instances private ip address
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 private_ip = get_linux_ec2_private_ip()
@@ -78,12 +78,12 @@ INSTALLED_APPS = [
     # http://whitenoise.evans.io/en/stable/django.html#using-whitenoise-in-development
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
-    
+    'django.contrib.gis',
     'rest_framework',
     'rest_framework_swagger',
     'rest_framework.authtoken',
     'farm-poc.authentication',
-    
+    'farm_api'
 ]
 
 MIDDLEWARE = [
@@ -130,6 +130,7 @@ WSGI_APPLICATION = 'farm-poc.wsgi.application'
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
@@ -138,10 +139,15 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+         'ENGINE': 'django.contrib.gis.db.backends.postgis',
+         'NAME': 'dg_poc',
+         'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': 'localhost',
+        'PORT': '5432'
+    },
 }
+
 
 # Use the database configuration defined in environment variable DATABASE_URL
 db_from_env = dj_database_url.config(conn_max_age=500)
