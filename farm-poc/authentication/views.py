@@ -22,3 +22,5 @@ class UserViewSet(mixins.CreateModelMixin,
         self.serializer_class = CreateUserSerializer
         self.permission_classes = (AllowAny,)
         return super(UserViewSet, self).create(request, *args, **kwargs)
+
+
