@@ -151,10 +151,10 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'farm_poc',
-        'USER': 'myprojectuser',
-        'PASSWORD': 'password',
-        'HOST': 'localhost',
+        'NAME': 'd4gg3os1rp95fl',
+        'USER': 'fwobjsoxtqlmwx',
+        'PASSWORD': 'a41186dd634eabdeaf8cf232198dae66fcac99a0495956b40b53d9bcd6a21a55',
+        'HOST': 'ec2-107-22-162-82.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
