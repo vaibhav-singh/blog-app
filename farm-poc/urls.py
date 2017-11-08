@@ -37,7 +37,7 @@ urlpatterns = [
     url(r'^swagger/$', schema_view),
     url(r'^api/v1/', include(authentication_urls)),
     url(r'^api/v1/', include(router.urls)),
-
+    url(r'^', include('squealy.urls')),
     url(r'^healthcheck/$', views.health_check),
 ]
 

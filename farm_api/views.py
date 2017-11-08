@@ -16,7 +16,7 @@ def fetch_villages(request):
     # )
     # q = Villages.objects.all()
     # print (dir(q[0]))
-    villages_found = Villages.objects.filter(coo__distance_lte=(Point(latitude, longitude), D(km=2)))
+    villages_found = Villages.objects.filter(coo__distance_lte=(Point(longitude, latitude), D(km=20)))
     result = []
     for village in villages_found:
         result.append(dict(
@@ -32,11 +32,11 @@ def fetch_villages(request):
 
 def make_village(request):
     name = request.GET['name']
-    latitude = request.GET['latitude']
-    longitude = request.GET['longitude']
+    latitude = float(request.GET['latitude'])
+    longitude = float(request.GET['longitude'])
     Villages.objects.create(
         name=name,
-        coo = Point(latitude, longitude)
+        coo = Point(longitude, latitude)
     )
 
     return JsonResponse({
