@@ -159,6 +159,9 @@ DATABASES = {
     }
 }
 
+GDAL_LIBRARY_PATH = os.getenv('GDAL_LIBRARY_PATH')
+GEOS_LIBRARY_PATH = os.getenv('GEOS_LIBRARY_PATH')
+
 
 # Use the database configuration defined in environment variable DATABASE_URL
 db_from_env = dj_database_url.config(conn_max_age=500)
