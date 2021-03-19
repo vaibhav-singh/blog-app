@@ -24,7 +24,7 @@ docutils==0.14
 future==0.16.0
 idna==2.6
 itypes==1.1.0
-Jinja2==2.9.6
+Jinja2==2.11.3
 jinjasql==0.1.6
 jmespath==0.9.3
 JPype1==0.6.2
